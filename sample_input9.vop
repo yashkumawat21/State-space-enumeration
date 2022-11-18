@@ -1,0 +1,63 @@
+*******************************************************************************************************************************
+
+                            Finite State Machine For sample_input9.v
+
+********************************************************************************************************************************
+
+IDLE----->  (reset==1'b0 && play == 1'b1) ------>>  PLAYER
+
+IDLE----->  !(reset==1'b0 && play == 1'b1) ------>>  IDLE
+
+PLAYER----->  (illegal_move==1'b0) ------>>  COMPUTER;
+
+PLAYER----->  !(illegal_move==1'b0) ------>>  IDLE
+
+COMPUTER----->  (pc==1'b0) ------>>  COMPUTER
+
+COMPUTER----->  !(pc==1'b0) & (win==1'b0 && no_space == 1'b0) ------>>  IDLE
+
+COMPUTER----->  !(win==1'b0 && no_space == 1'b0) & !(pc==1'b0) & (no_space == 1 || win ==1'b1) ------>>  done
+
+GAME_DONE----->  (reset==1'b1) ------>>  IDLE
+
+GAME_DONE----->  !(reset==1'b1) ------>>  
+
+
+
+Pair of initial state and final state :- 
+( IDLE , PLAYER )
+( IDLE , IDLE )
+( PLAYER , COMPUTER; )
+( PLAYER , IDLE )
+( COMPUTER , COMPUTER )
+( COMPUTER , IDLE )
+( COMPUTER , done )
+( GAME_DONE , IDLE )
+( GAME_DONE ,  )
+
+
+
+Max Transitions :  3
+
+Total no of states = 7
+All states are :-  
+ , COMPUTER , COMPUTER; , GAME_DONE , IDLE , PLAYER , done , 
+
+No of self loops = 2
+No of transitions = 9
+
+States having self loops :-  COMPUTER , IDLE , 
+
+Max Transitions :  3
+
+No. of Inputs in the verilog code  :  27
+Name of Inputs in the verilog code  :   ,   ,  // Computer enable signals ,  // Player enable signals ,  // clock of the game ,  // disable writing when an illegal move is detected ,  // enable computer to play ,  // pc button to enable computer to play ,  // play button to enable player to play ,  // reset button to reset the game ,  // reset the game ,  PL_en ,  output wire [1:0]who) ,  output wire winner , // clock of the circuit , // reset , player_position , pos1 , pos2 , pos3 , pos4 , pos5 , pos6 , pos7 , pos8 , pos9 , pos9// positions store , 
+
+No. of Outputs in the verilog code  :  0
+Name of Outputs in the verilog code  :  
+
+No. of FlipFlop 5
+
+
+
+Time Taken By Model: 7.72147 s

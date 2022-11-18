@@ -1,0 +1,57 @@
+*******************************************************************************************************************************
+
+                            Finite State Machine For sample_input1.v
+
+********************************************************************************************************************************
+
+IDLE----->  (req_0 == 1'b1) ------>>  GNT0
+
+IDLE----->  !(req_0 == 1'b1) & (req_1 == 1'b1) ------>>  GNT1
+
+IDLE----->  !(req_1 == 1'b1) & !(req_0 == 1'b1) ------>>  IDLE
+
+GNT0----->  (req_0 == 1'b1) ------>>  GNT0
+
+GNT0----->  !(req_0 == 1'b1) ------>>  IDLE
+
+GNT1----->  (req_1 == 1'b1) ------>>  GNT1
+
+GNT1----->  !(req_1 == 1'b1) ------>>  IDLE
+
+
+
+Pair of initial state and final state :- 
+( IDLE , GNT0 )
+( IDLE , GNT1 )
+( IDLE , IDLE )
+( GNT0 , GNT0 )
+( GNT0 , IDLE )
+( GNT1 , GNT1 )
+( GNT1 , IDLE )
+
+
+
+Max Transitions :  3
+
+Total no of states = 3
+All states are :-  
+GNT0 , GNT1 , IDLE , 
+
+No of self loops = 3
+No of transitions = 7
+
+States having self loops :-  GNT0 , GNT1 , IDLE , 
+
+Max Transitions :  3
+
+No. of Inputs in the verilog code  :  4
+Name of Inputs in the verilog code  :  gnt_1 , req_0 , req_1 , reset , 
+
+No. of Outputs in the verilog code  :  0
+Name of Outputs in the verilog code  :  
+
+No. of FlipFlop 7
+
+
+
+Time Taken By Model: 33.0796 s
